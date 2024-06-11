@@ -579,7 +579,7 @@ The evaluation includes 2 proprietary and 10 open-source MLLMs, which struggle o
   function loadCSV() {
     $.ajax({
       type: "GET",
-      url: "./static/webdemo_data.csv",
+      url: "./static/webdemo_data_small.csv",
       dataType: "text",
       success: function(response) {
         data = $.csv.toObjects(response);
