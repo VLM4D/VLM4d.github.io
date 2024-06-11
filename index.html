@@ -55,15 +55,15 @@
             <span class="author-block">
               <a href="https://weixi-feng.github.io/">Weixi Feng*</a><sup>2</sup>,</span>
             <span class="author-block">
-              <a href="https://kzzheng.github.io/">Kaizhi Zheng∗</a><sup>1</sup>,</span>
+              <a href="https://kzzheng.github.io/">Kaizhi Zheng*</a><sup>1</sup>,</span>
             <span class="author-block">
-              <a href="https://yujielu10.github.io/">Yujie Lu∗</a><sup>2</sup>,</span>
+              <a href="https://yujielu10.github.io/">Yujie Lu*</a><sup>2</sup>,</span>
             <span class="author-block">
-              <a href="https://wanrong-zhu.com/">Wanrong Zhu∗</a><sup>2</sup>,</span>
+              <a href="https://wanrong-zhu.com/">Wanrong Zhu*</a><sup>2</sup>,</span>
             <span class="author-block">
-              <a href="https://sites.google.com/view/jiachenli/">Jiachen Li∗</a><sup>2</sup>,</span>
+              <a href="https://sites.google.com/view/jiachenli/">Jiachen Li*</a><sup>2</sup>,</span>
             <span class="author-block">
-              <a href="http://www.yfan.site/">Yue Fan∗</a><sup>1</sup>,</span>
+              <a href="http://www.yfan.site/">Yue Fan*</a><sup>1</sup>,</span>
             <span class="author-block">
               <a href="https://scholar.google.com/citations?user=vJWEw_8AAAAJ&hl=en">Jianfeng Wang</a><sup>3</sup>,</span>
             <span class="author-block">
@@ -96,7 +96,7 @@
               <!-- PDF Link. -->
 
               <span class="link-block">
-                <a href="http://arxiv.org/pdf/2404.05717"
+                <a href=""
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -105,17 +105,17 @@
                 </a>
               </span>
               <span class="link-block">
-                <a href="http://arxiv.org/abs/2404.05717"
+                <a href=""
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
-                      <i class="ai ai-arxiv"></i>
+                      <i class="fas fa-database"></i>
                   </span>
-                  <span>arXiv</span>
+                  <span>dataset</span>
                 </a>
               </span>
               <!-- Code Link. -->
               <span class="link-block">
-                <a href="https://github.com/eric-ai-lab/swap-anything"
+                <a href=""
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
@@ -137,10 +137,7 @@
     <div class="hero-body">
       <img id="teaser" width="150%" src="./static/images/teaser.png">
       <h2 class="subtitle has-text-centered">
-        <p style="font-family:Times New Roman"><b>Figure 1. SwapAnything results on various personalized image swapping tasks. SwapAnything 
-          is adept at precise, arbitrary object replacement in a source image with a personalized reference, 
-          and achieves high-fidelity swapping results without influencing any context pixels. 
-          We demonstrate its general swapping effect in single-object, multi-object, partial-object, and cross-domain swapping tasks. </b></p>
+        <p style="font-family:Times New Roman"><b>Figure 1. MMWorld covers seven broad disciplines and 69 subdisciplines, focusing on the evaluation of multi-faceted reasoning beyond perception (e.g., explanation, counterfactual thinking, future prediction, domain expertise). On the right is a video sample from the Health \& Medicine discipline. </b></p>
       </h2>
     </div>
   </div>
@@ -155,12 +152,13 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Effective editing of personal content holds a pivotal role in enabling individuals to express their creativity, weaving captivating narratives within their visual stories, and elevate the overall quality and impact of their visual content. 
-Therefore, in this work, we introduce <b>SwapAnything</b>, a novel framework that can swap any objects in an image with personalized concepts given by the reference, while keeping the context unchanged.
-Compared with existing methods for personalized subject swapping, <b>SwapAnything</b> has three unique advantages: (1) precise control of arbitrary objects and parts rather than the main subject, (2) more faithful preservation of context pixels, (3) better adaptation of the personalized concept to the image.
-First, we propose targeted variable swapping to apply region control over latent feature maps and swap masked variables for faithful context preservation and initial semantic concept swapping. Then, we introduce appearance adaptation, to seamlessly adapt the semantic concept into the original image in terms of target location, shape, style, and content during the image generation process.
-Extensive results on both human and automatic evaluation demonstrate significant improvements of our approach over baseline methods on personalized swapping. 
-Furthermore, <b>SwapAnything</b> shows its precise and faithful swapping abilities across single object, multiple objects, partial object, and cross-domain swapping tasks. 
+            Multimodal Language Language Models (MLLMs) demonstrate the emerging abilities of "world models"---interpreting and reasoning about complex real-world dynamics. 
+To assess these abilities, we posit videos are the ideal medium, as they encapsulate rich representations of real-world dynamics and causalities.
+To this end, we introduce MMWorld, a new benchmark for multi-discipline, multi-faceted multimodal video understanding.
+MMWorld distinguishes itself from previous video understanding benchmarks with two unique advantages: (1) <b>multi-discipline</b>, covering various disciplines that often require domain expertise for comprehensive understanding; (2) <b>multi-faceted reasoning</b>, including explanation, counterfactual thinking, future prediction, etc.
+MMWorld consists of a human-annotated dataset to evaluate MLLMs with questions about the whole videos and a synthetic dataset to analyze MLLMs within a single modality of perception. 
+Together, MMWorld encompasses 1,910 videos across seven broad disciplines and 69 subdisciplines, complete with 6,627 question-answer pairs and associated captions. 
+The evaluation includes 2 proprietary and 10 open-source MLLMs, which struggle on MMWorld (e.g., GPT-4V performs the best with only 52.3\% accuracy), showing large room for improvement. Further ablation studies reveal other interesting findings such as models' different skill sets from humans. We hope MMWorld can serve as an essential step towards world model evaluation in videos.
           </p>
         </div>
       </div>
