@@ -137,7 +137,7 @@
     <div class="hero-body">
       <img id="teaser" width="150%" src="./static/image/teaser.png">
       <h2 class="subtitle has-text-centered">
-        <p style="font-family:Times New Roman"><b>Figure 1. MMWorld covers seven broad disciplines and 69 subdisciplines, focusing on the evaluation of multi-faceted reasoning beyond perception (e.g., explanation, counterfactual thinking, future prediction, domain expertise). On the right is a video sample from the Health \& Medicine discipline. </b></p>
+        <p style="font-family:Times New Roman"><b>Figure 1. MMWorld covers seven broad disciplines and 69 subdisciplines, focusing on the evaluation of multi-faceted reasoning beyond perception (e.g., explanation, counterfactual thinking, future prediction, domain expertise). On the right is a video sample from the Health & Medicine discipline. </b></p>
       </h2>
     </div>
   </div>
@@ -168,59 +168,74 @@ The evaluation includes 2 proprietary and 10 open-source MLLMs, which struggle o
 
 
 
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-five-fifths">
-        <h2 class="title is-3"><img id="painting_icon" width="5%" src="/home/xuehai/MMWorld-bench.github.io/static/image/dataset_compare.png"> A single frame for different tasks. </h2> 
-      </div>
-    </div>
-
-        <div class="columns is-centered has-text-centered">
-          <div class="column is-six-fifths">
-            <div class="content has-text-justified">
-              <ul>
-                <li> Targetted swapping to keep context pixel perfectly unchaged and to transfer important features. </li>
-                <li> Sophisticated appearance adaptation process to adapt the concept image into the source object.</li>
-                <li>The framework applied to single object swapping, multi-object swapping, partial-object swapping, cross-domain swapping, text-based swapping, and tasks beyond swapping such as object insersion.</li>
-              </ul>
-            </div>        
-            <img id="model" width="100%" src="/home/xuehai/MMWorld-bench.github.io/static/image/pipeline.png">
-            <h3 class="subtitle has-text-centered">
-              <p style="font-family:Times New Roman"><b>Figure 2. Overview of SwapAnything on swapping a object from a source image ($I_{src}$) into a personalized concept
-                 ($<{*}>$) to get the target image ($I_{target}$).
-                The personalized concept is first converted into textual space to be treated as concept appearance.
-                Meanwhile, the source image is first inverted into initial noise to obtain U-Net variables (including latent feature, attention map, and attention output). 
-                Targeted variable swapping preserves the context pixels in the source image. The appearance adaptation process then utilizes these informative variables to 
-                integrate the concept into the target image.</b></p>
-            </h3>   
-
-
-        </div>
-  </div>
-</section>
-
-
 
 <section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-five-fifths">
-        <h2 class="title is-3"><img id="painting_icon" width="5%" src="https://cdn-icons-png.flaticon.com/512/5379/5379860.png"> Single Object Swapping Result </h2> 
+        <h2 class="title is-3"><img id="painting_icon" width="5%" src="https://cdn-icons-png.flaticon.com/512/5379/5379860.png"> Dataset Characteristics </h2> 
       </div>
     </div>
 
         <div class="columns is-centered has-text-centered">
           <div class="column is-six-fifths">  
-            <img id="model" width="100%" src="./static/images/more-single.png">
+            <img id="model" width="100%" src="./static/image/dataset_compare.png">
             <h3 class="subtitle has-text-centered">
-              <p style="font-family:Times New Roman"><b>Figure 3. Comparison on single-object swapping with baselines in their original components. SS means Object Swapping,
-                 BP means Background Preservation,
-                 and OQ means Overall Quality. SG means Object Gesture. Please zoom in for a clear visual result. </b></p>
+              <p style="font-family:Times New Roman"><b>Figure 2. Comparison between MMWorld and previous benchmarks for real-world video understanding
+                on a variety of criteria. Multi-faced include Explanation (Explain.), Counterfactual Thinking
+                (Counter.), Future Prediction (Future.) and Domain Expertise (Domain.) MMWorld is the first
+                multi-discipline and multitask video understanding benchmark that covers wider reasoning questions,
+                and also included first-party data annotations. </b></p>
             </h3>   
         </div>
   </div>
 </section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-five-fifths">
+        <h2 class="title is-3"><img id="painting_icon" width="5%" src="/home/xuehai/MMWorld-bench.github.io/static/image/question_type.png"> Question Types Distribution</h2> 
+      </div>
+    </div>
+
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-six-fifths">  
+            <img id="model" width="100%" src="./static/image/question_type.png">
+            <h3 class="subtitle has-text-centered">
+              <p style="font-family:Times New Roman"><b>Figure 3. The questions in MMWorld primarily evaluate seven understanding and reasoning abilities
+                of models to provide correct answers. </b></p>
+            </h3>   
+        </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-five-fifths">
+        <h2 class="title is-3"><img id="painting_icon" width="5%" src="https://cdn-icons-png.flaticon.com/512/5379/5379860.png"> A single frame for different tasks. </h2> 
+      </div>
+    </div>
+
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-six-fifths">     
+            <img id="model" width="100%" src="./static/image/pipeline.png">
+            <h3 class="subtitle has-text-centered">
+              <p style="font-family:Times New Roman"><b>Figure 2. Schematic diagram of the synthetic data generation pipeline in MMWorld. It starts with generating subdiscipline-specific queries, followed by video retrieval from YouTube-8M and YouTube. 
+                Keyframes are extracted for visual-based QA generation, and videos are transcribed using an ASR module for audio-based QA generation.</b></p>
+            </h3>   
+
+
+        </div>
+  </div>
+</section>
+
+
+
+
 
 
 <section class="section">
