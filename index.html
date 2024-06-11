@@ -313,15 +313,35 @@ The evaluation includes 2 proprietary and 10 open-source MLLMs, which struggle o
 
 
 
+<!-- <section class="section" id="examples">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-five-fifths">
+        <h2 class="title is-3"><img id="painting_icon" width="5%" src="https://cdn-icons-png.flaticon.com/512/5379/5379860.png"> Examples</h2>
+      </div>
+    </div>
 
-<section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
-    <pre><code></code></pre>
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-six-fifths">
+        <div id="video-container">
+          <video id="example-video" width="100%" height="315" controls>
+            <source id="video-source" src="" type="video/mp4">
+          </video>
+        </div>
+
+        <div id="question-container">
+          <p id="question"></p>
+          <select id="options" required=""></select>
+        </div>
+
+        <div class="buttons">
+          <button id="prev-button" class="button is-primary">Previous</button>
+          <button id="next-button" class="button is-primary">Next</button>
+        </div>
+      </div>
+    </div>
   </div>
-</section>
-
-
+</section> -->
 
 
 <section class="section" id="examples">
@@ -342,11 +362,12 @@ The evaluation includes 2 proprietary and 10 open-source MLLMs, which struggle o
             question=""
             options="">
 
-            <video-controls>
+            <div id="video-container">
               <video id="example-video" width="100%" height="315" controls>
-                <source src="" type="video/mp4">
+                <source id="video-source" src="" type="video/mp4">
               </video>
-            </video-controls>
+            </div>
+            
 
             <full-instructions header="Detailed Instructions">
               <p>Watch the video.</p>
@@ -362,7 +383,7 @@ The evaluation includes 2 proprietary and 10 open-source MLLMs, which struggle o
       </div>
     </div>
   </div>
-</section>
+</section> 
 
 
 
@@ -584,6 +605,17 @@ The evaluation includes 2 proprietary and 10 open-source MLLMs, which struggle o
 
 
 
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code></code></pre>
+  </div>
+</section>
+
+
+
+
 <footer class="footer">
   <div class="container">
     <div class="columns is-centered">
@@ -611,6 +643,7 @@ The evaluation includes 2 proprietary and 10 open-source MLLMs, which struggle o
 <script>
   let data = [];
   let currentIndex = 0;
+  const videoUrlPrefix = "https://videounderstanding.s3.us-east-2.amazonaws.com/";
 
   function loadCSV() {
     $.ajax({
@@ -627,7 +660,8 @@ The evaluation includes 2 proprietary and 10 open-source MLLMs, which struggle o
   function updateContent() {
     if (data.length > 0 && currentIndex >= 0 && currentIndex < data.length) {
       const currentData = data[currentIndex];
-      $('#example-video source').attr('src', currentData.video_url);
+      const videoUrl = videoUrlPrefix + currentData.video_url;
+      $('#video-source').attr('src', videoUrl);
       $('#example-video')[0].load();
       $('#question').text(currentData.question);
       const options = [currentData.option_a, currentData.option_b, currentData.option_c, currentData.option_d];
