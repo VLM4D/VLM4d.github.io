@@ -33,13 +33,70 @@
   href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="icon" href="./static/images/icon.png">
   <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
+  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
-  <script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
+  <!-- <script src="https://assets.crowd.aws/crowd-html-elements.js"></script> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+
+
+
+
+  <style>
+    /* .section {
+      padding: 3rem 1.5rem;
+    }
+
+    .container {
+      max-width: 800px;
+    }
+
+    #video-container {
+      margin-bottom: 2rem;
+    }
+
+    #question-container {
+      margin-bottom: 2rem;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .button.is-primary {
+      background-color: #3273dc;
+      border-color: transparent;
+      color: #fff;
+      transition: background-color 0.3s ease;
+    }
+
+    .button.is-primary:hover {
+      background-color: #275ab0;
+      border-color: transparent;
+    }
+
+    .title img {
+      margin-right: 0.5rem;
+    }
+
+    .select {
+      width: 100%;
+      margin-top: 1rem;
+    } */
+
+    /* Hide the "Previewing Answers Submitted by Workers" message */
+    crowd-alert {
+      display: none !important;
+    }
+  </style>
 </head>
 <body>
 
@@ -240,7 +297,7 @@ The evaluation includes 2 proprietary and 10 open-source MLLMs, which struggle o
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-five-fifths">
-        <h2 class="title is-3"><img id="painting_icon" width="5%" src="/home/xuehai/MMWorld-bench.github.io/static/image/question_type.png"> Question Types Distribution</h2> 
+        <h2 class="title is-3"><img id="painting_icon" width="5%" src="./static/image/question_type.png"> Question Types Distribution</h2> 
       </div>
     </div>
 
@@ -344,263 +401,230 @@ The evaluation includes 2 proprietary and 10 open-source MLLMs, which struggle o
 </section> -->
 
 
+
+
 <section class="section" id="examples">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
-      <div class="column is-five-fifths">
-        <h2 class="title is-3"><img id="painting_icon" width="5%" src="https://cdn-icons-png.flaticon.com/512/5379/5379860.png"> Examples</h2>
+      <div class="column is-full">
+        <h2 class="title is-3">
+          <img id="painting_icon" width="5%" src="https://cdn-icons-png.flaticon.com/512/5379/5379860.png" alt="Painting Icon">
+          Examples
+        </h2>
       </div>
     </div>
 
     <div class="columns is-centered has-text-centered">
-      <div class="column is-six-fifths">
-        <crowd-form answer-format="flatten-objects">
-          <crowd-multiple-choice 
-            name="video-question-answer"
-            id="video-question-answer"
-            header="Answer the following question based on the video"
-            question=""
-            options="">
+      <div class="column is-full">
+        <div id="video-container" class="box">
+          <video id="example-video" class="is-fullwidth" controls>
+            <source id="video-source" src="" type="video/mp4">
+          </video>
+        </div>
 
-            <div id="video-container">
-              <video id="example-video" width="100%" height="315" controls>
-                <source id="video-source" src="" type="video/mp4">
-              </video>
-            </div>
-            
+        <div id="question-container" class="box">
+          <p class="has-text-weight-bold">Question: <span id="question"></span></p>
+          <div class="select is-fullwidth">
+            <select name="video-question-answer" id="options" required="">
+            </select>
+          </div>
+        </div>
 
-            <full-instructions header="Detailed Instructions">
-              <p>Watch the video.</p>
-              <p>Read the question provided carefully. Based on the content of the video, select the most accurate answer from the options given. There is only one correct answer for each question.</p>
-              Question: <span id="question"></span><br>
-              <select name="video-question-answer" id="options" required="">
-              </select>
-            </full-instructions>
-          </crowd-multiple-choice>
-        </crowd-form>
-        <button id="prev-button" class="button is-primary">Previous</button>
-        <button id="next-button" class="button is-primary">Next</button>
+        <div class="buttons is-centered">
+          <button id="prev-button" class="button is-primary is-light">Previous</button>
+          <button id="next-button" class="button is-primary is-light">Next</button>
+        </div>
       </div>
     </div>
   </div>
-</section> 
+</section>
 
 
 
-
-
-<div class="columns is-centered m-6">
-  <div class="column is-full has-text-centered content">
-    <h2 class="title is-3" id="leaderboard">Leaderboard</h2>
-    <div class="content">
-      <div class="content has-text-justified">
-        <p>
-          We evaluate various models including LLMs and LMMs.
-          In each type, we consider both closed- and open-source models.
-          Our evaluation is conducted under a zero-shot setting to assess the capability of models to generate accurate answers without fine-tuning or few-shot demonstrations on our benchmark.
-          For all models, we use the default prompt provided by each model for multi-choice or open QA, if available.
-          If models do not provide prompts for task types in MMMU, we conduct prompt engineering on the validation set and use the most effective prompt for the later zero-shot experiment.
-
-        </p>
+<section class="section" id="leaderboard">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered m-6">
+      <div class="column is-full has-text-centered content">
+        <h2 class="title is-3">Leaderboard</h2>
+        <div class="content">
+          <div class="content has-text-justified">
+            <p>
+             Below we shows the current leaderboard of MMWorld based on results on the human annotated datasets.
+            </p>
+          </div>
+          
+          
+          
+          <!-- Validation Set Leaderboard -->
+          <table id="table1" class="js-sort-table">
+            <thead>
+              <tr>
+                <th class="js-sort-string"><strong>Model</strong></th>
+                <th class="js-sort-number"><strong>Art & Sports</strong></th>
+                <th class="js-sort-number"><strong>Business</strong></th>
+                <th class="js-sort-number"><strong>Science</strong></th>
+                <th class="js-sort-number"><strong>Health & Medicine</strong></th>
+                <th class="js-sort-number"><strong>Embodied Tasks</strong></th>
+                <th class="js-sort-number"><strong>Tech & Engineering</strong></th>
+                <th class="js-sort-number"><strong>Game</strong></th>
+                <th class="js-sort-number"><strong>Average</strong></th>
+              </tr>
+            </thead>
+            <tbody>
+                <td>Random Choice</td>
+                <td>25.03</td>
+                <td>25.09</td>
+                <td>26.44</td>
+                <td>25.00</td>
+                <td>26.48</td>
+                <td>30.92</td>
+                <td>25.23</td>
+                <td>26.31</td>
+              </tr>
+              <tr style="background-color: rgba(255, 200, 200, 0.3);">
+                <td>GPT-4V</td>
+                <td>36.17</td>
+                <td>81.59</td>
+                <td>66.52</td>
+                <td>73.61</td>
+                <td>55.48</td>
+                <td>61.35</td>
+                <td>73.49</td>
+                <td>52.30</td>
+              </tr>
+              <tr style="background-color: rgba(255, 200, 200, 0.3);">
+                <td>Gemini Pro</td>
+                <td>37.12</td>
+                <td>76.69</td>
+                <td>62.81</td>
+                <td>76.74</td>
+                <td>43.59</td>
+                <td>69.86</td>
+                <td>66.27</td>
+                <td>51.02</td>
+              </tr>
+              <tr style="background-color: rgba(200, 200, 255, 0.3);">
+                <td>Video-LLaVA-7B</td>
+                <td>35.91</td>
+                <td>51.28</td>
+                <td>56.30</td>
+                <td>32.64</td>
+                <td>63.17</td>
+                <td>58.16</td>
+                <td>49.00</td>
+                <td>44.60</td>
+              </tr>
+              <tr style="background-color: rgba(200, 200, 255, 0.3);">
+                <td>Video-Chat-7B</td>
+                <td>39.53</td>
+                <td>51.05</td>
+                <td>30.81</td>
+                <td>46.18</td>
+                <td>40.56</td>
+                <td>39.36</td>
+                <td>44.98</td>
+                <td>40.11</td>
+              </tr>
+              <tr style="background-color: rgba(200, 200, 255, 0.3);">
+                <td>ChatUnivi-7B</td>
+                <td>24.47</td>
+                <td>60.84</td>
+                <td>52.00</td>
+                <td>61.11</td>
+                <td>46.15</td>
+                <td>56.74</td>
+                <td>52.61</td>
+                <td>39.47</td>
+              </tr>
+              <tr style="background-color: rgba(200, 200, 255, 0.3);">
+                <td>mPLUG-Owl-7B</td>
+                <td>29.16</td>
+                <td>64.10</td>
+                <td>47.41</td>
+                <td>60.07</td>
+                <td>23.78</td>
+                <td>41.84</td>
+                <td>62.25</td>
+                <td>38.94</td>
+              </tr>
+              <tr style="background-color: rgba(200, 200, 255, 0.3);">
+                <td>PandaGPT-7B</td>
+                <td>25.33</td>
+                <td>42.66</td>
+                <td>39.41</td>
+                <td>38.54</td>
+                <td>35.43</td>
+                <td>41.84</td>
+                <td>40.16</td>
+                <td>32.48</td>
+              </tr>
+              <tr style="background-color: rgba(200, 200, 255, 0.3);">
+                <td>ImageBind-LLM-7B</td>
+                <td>24.82</td>
+                <td>42.66</td>
+                <td>32.15</td>
+                <td>30.21</td>
+                <td>46.85</td>
+                <td>41.49</td>
+                <td>41.37</td>
+                <td>31.75</td>
+              </tr>
+              <tr style="background-color: rgba(200, 200, 255, 0.3);">
+                <td>X-Instruct-BLIP-7B</td>
+                <td>21.08</td>
+                <td>15.85</td>
+                <td>22.52</td>
+                <td>28.47</td>
+                <td>18.41</td>
+                <td>22.34</td>
+                <td>26.10</td>
+                <td>21.36</td>
+              </tr>
+              <tr style="background-color: rgba(200, 200, 255, 0.3);">
+                <td>LWM-1M-JAX</td>
+                <td>12.04</td>
+                <td>17.48</td>
+                <td>15.41</td>
+                <td>20.49</td>
+                <td>25.87</td>
+                <td>21.99</td>
+                <td>11.65</td>
+                <td>15.39</td>
+              </tr>
+              <tr style="background-color: rgba(200, 200, 255, 0.3);">
+                <td>Otter-7B</td>
+                <td>17.12</td>
+                <td>18.65</td>
+                <td>9.33</td>
+                <td>6.94</td>
+                <td>13.29</td>
+                <td>15.96</td>
+                <td>15.26</td>
+                <td>14.99</td>
+              </tr>
+              <tr style="background-color: rgba(200, 200, 255, 0.3);">
+                <td>Video-LLaMA-2-13B</td>
+                <td>6.15</td>
+                <td>21.21</td>
+                <td>22.22</td>
+                <td>31.25</td>
+                <td>15.38</td>
+                <td>19.15</td>
+                <td>24.90</td>
+                <td>14.03</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="model-labels-container">
+            <span class="leaderboard-label" style="background-color: rgba(200, 200, 255, 1); margin-right: 30px;">Open-Source</span>
+            <span class="leaderboard-label" style="background-color: rgba(255, 200, 200, 1);">Proprietary</span>
+          </div>
+          <p> Overall results of different MLLMs on MMWorld. </p>
+        </div>
       </div>
-
-      <button id="toggleButton" onclick="changeButtonText()"><b style='font-size: larger;'>Validation Set Leaderboard</b> (Click to Switch)</button>
-      <div class="model-labels-container">
-        <span class="leaderboard-label" style="background-color: rgba(255, 208, 80, 0.15);">Human Expert</span>
-        <span class="leaderboard-label" style="background-color: rgba(249, 242, 248, 1);">Open-Source</span>
-        <span class="leaderboard-label" style="background-color: rgba(117, 209, 215, 0.1);">Proprietary</span>
-      </div>
-      <!-- Validation Set Leaderboard -->
-      <table id="table1" class="js-sort-table">
-        <tr>
-          <td class="js-sort-number"><strong>Reset</strong></td>
-          <td class="js-sort-string"><strong>Size</strong></td>
-          <td class="js-sort-date"><strong>Date</strong></td>
-          <td class="js-sort-number"><strong>Overall</strong></td>
-          <td class="js-sort-number"><strong>Art & Design</strong></td>
-          <td class="js-sort-number"><strong>Business</strong></td>
-          <td class="js-sort-number"><strong>Science</strong></td>
-          <td class="js-sort-number"><strong>Health & Medicine</strong></td>
-          <td class="js-sort-number"><strong>Human. & Social Sci.</strong></td>
-          <td class="js-sort-number"><strong>Tech & Eng.</strong></td>
-        </tr>
-        <tr style="background-color: rgba(255, 208, 80, 0.15);">
-          <td style="text-align: left;">
-            <b>Human Expert (Best)</b>
-          </td>
-          <td>-</td>
-          <td>2024-01-31</td>
-          <td><b>88.6</b></td>
-          <td><b>89.2</b></td>
-          <td><b>90.7</b></td>
-          <td><b>90.0</b></td>
-          <td><b>87.3</b></td>
-          <td><b>89.2</b></td>
-          <td><b>86.2</b></td>
-        </tr>
-        <tr style="background-color: rgba(255, 208, 80, 0.15);">
-          <td style="text-align: left;">
-            <b>Human Expert (Medium)</b>
-          </td>
-          <td>-</td>
-          <td>2024-01-31</td>
-          <td>82.6</td>
-          <td>84.2</td>
-          <td>86.0</td>
-          <td>84.7</td>
-          <td>78.8</td>
-          <td>85.0</td>
-          <td>79.1</td>
-        </tr>
-        <tr style="background-color: rgba(255, 208, 80, 0.15);">
-          <td style="text-align: left;">
-            <b>Human Expert (Worst)</b>
-          </td>
-          <td>-</td>
-          <td>2024-01-31</td>
-          <td>76.2</td>
-          <td>80.8</td>
-          <td>78.0</td>
-          <td>78.0</td>
-          <td>73.3</td>
-          <td>74.2</td>
-          <td>74.3</td>
-        </tr>
-        <tr style="background-color: rgba(117, 209, 215, 0.1);">
-          <td style="text-align: left;">
-            <a href="https://openai.com/index/hello-gpt-4o/">
-                <b>GPT-4o*</b>
-            </a>
-          </td>
-          <td>-</td>
-          <td>2024-05-27</td>
-          <td><b>69.1</b></td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-        </tr>
-        <tr style="background-color: rgba(117, 209, 215, 0.1);">
-          <td style="text-align: left;">
-            <a href="https://storage.googleapis.com/deepmind-media/gemini/gemini_v1_5_report.pdf">
-                <b>Gemini 1.5 Pro*</b>
-            </a>
-          </td>
-          <td>-</td>
-          <td>2024-05-31</td>
-          <td style="text-decoration: underline;">62.2</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-        </tr>
-        <tr style="background-color: rgba(117, 209, 215, 0.1);">
-          <td style="text-align: left;">
-            <a href="https://deepmind.google/technologies/gemini/#introduction">
-                <b>Gemini 1.0 Ultra*</b>
-            </a>
-          </td>
-          <td>-</td>
-          <td>2023-12-11</td>
-          <td>59.4</td>
-          <td>70.0</td>
-          <td>56.7</td>
-          <td>48.0</td>
-          <td><b>67.3</b></td>
-          <td><b>78.3</b></td>
-          <td>47.1</td>
-        </tr>
-        <tr style="background-color: rgba(117, 209, 215, 0.1);">
-          <td style="text-align: left;">
-            <a href="https://www.anthropic.com/news/claude-3-family">
-                <b>Claude 3 Opus*</b>
-            </a>
-          </td>
-          <td>-</td>
-          <td>2024-03-05</td>
-          <td>59.4</td>
-          <td>67.5</td>
-          <td><b>67.2</b></td>
-          <td>48.9</td>
-          <td>61.1</td>
-          <td>70.0</td>
-          <td><b>50.6</b></td>
-        </tr>
-        <tr style="background-color: rgba(117, 209, 215, 0.1);">
-          <td style="text-align: left;">
-            <a href="https://openai.com/contributions/gpt-4v">
-                <b>GPT-4V(ision) (Playground)</b>
-            </a>
-          </td>
-          <td>-</td>
-          <td>2023-11-27</td>
-          <td>56.8</td>
-          <td>65.8</td>
-          <td style="text-decoration: underline;">59.3</td>
-          <td><b>54.7</b></td>
-          <td style="text-decoration: underline;">64.7</td>
-          <td>72.5</td>
-          <td>36.7</td>
-        </tr>
-        <tr style="background-color: rgba(117, 209, 215, 0.1);">
-          <td style="text-align: left;">
-            <a href="https://publications.reka.ai/reka-core-tech-report.pdf">
-                <b>Reka Core*</b>
-            </a>
-          </td>
-          <td>-</td>
-          <td>2024-04-23</td>
-          <td>56.3</td>
-          <td><b>75.9</b</td>
-          <td>47.3</td>
-          <td style="text-decoration: underline;">49.3</td>
-          <td>58.0</td>
-          <td style="text-decoration: underline;">75.0</td>
-          <td>44.2</td>
-        </tr>
-        <tr style="background-color: rgba(117, 209, 215, 0.1);">
-          <td style="text-align: left;">
-            <a href="https://storage.googleapis.com/deepmind-media/gemini/gemini_v1_5_report.pdf">
-                <b>Gemini 1.5 Flah*</b>
-            </a>
-          </td>
-          <td>-</td>
-          <td>2024-05-31</td>
-          <td>56.1</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-        </tr>
-        <tr style="background-color: rgba(117, 209, 215, 0.1);">
-          <td style="text-align: left;">
-            <a href="https://platform.sensenova.cn/doc?path=/model/mllm.md">
-                <b>SenseChat-Vision-0423-Preview*</b>
-            </a>
-          </td>
-          <td>-</td>
-          <td>2024-04-23</td>
-          <td>54.6</td>
-          <td>66.7</td>
-          <td>54.0</td>
-          <td>45.3</td>
-          <td>53.3</td>
-          <td style="text-decoration: underline;">75.0</td>
-          <td>43.8</td>
-        </tr>
-      </table>
-      
-        <p> Overall results of different models on the MMMU test set. The best-performing model in each category is <b>in-bold</b>, and the second best is <u>underlined</u>. *: results provided by the authors.</p>
     </div>
   </div>
-</div>
-
+</section>
 
 
 
@@ -688,6 +712,15 @@ The evaluation includes 2 proprietary and 10 open-source MLLMs, which struggle o
 
   $(document).ready(function() {
     loadCSV();
+    
+    const observer = new MutationObserver(() => {
+      const alertElement = document.querySelector('crowd-form').shadowRoot.querySelector('crowd-alert').shadowRoot.querySelector('awsui-alert');
+      if (alertElement) {
+        alertElement.style.display = 'none';
+      }
+    });
+    
+    observer.observe(document.querySelector('crowd-form').shadowRoot, { childList: true, subtree: true });
   });
 </script>
 
