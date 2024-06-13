@@ -420,15 +420,17 @@ The evaluation includes 2 proprietary and 10 open-source MLLMs, which struggle o
           <video id="example-video" class="is-fullwidth" controls>
             <source id="video-source" src="" type="video/mp4">
           </video>
-        </div>
 
-        <div id="question-container" class="box">
-          <p class="has-text-weight-bold">Question: <span id="question"></span></p>
-          <div class="select is-fullwidth">
+          <p class="has-text-weight-bold" style="color: #4682b4;">Discipline: <span id="discipline" style="color: #4682b4;"></span></p>
+          <p class="has-text-weight-bold" style="color: #ff69b4;">Subdiscipline: <span id="subdiscipline" style="color: #ff69b4;"></span></p>
+          <p class="has-text-weight-bold" style="color: #66cdaa;">Question: <span id="question" style="color: #66cdaa;"></span></p>
+          <div class="select is-fullwidth" style="margin-top: 1rem;">
             <select name="video-question-answer" id="options" required="">
             </select>
           </div>
         </div>
+
+        
 
         <div class="buttons is-centered">
           <button id="prev-button" class="button is-primary is-light">Previous</button>
@@ -695,6 +697,8 @@ The evaluation includes 2 proprietary and 10 open-source MLLMs, which struggle o
       $('#video-source').attr('src', videoUrl);
       $('#example-video')[0].load();
       $('#question').text(currentData.question);
+      $('#discipline').text(currentData.domain);
+      $('#subdiscipline').text(currentData.subdomain);
       const options = [currentData.option_a, currentData.option_b, currentData.option_c, currentData.option_d];
       $('#options').empty();
       options.forEach(option => {
