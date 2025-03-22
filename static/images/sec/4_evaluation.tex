@@ -1,0 +1,97 @@
+\begin{table*}[h]
+    \centering
+    \resizebox{1.0\linewidth}{!}{
+    \renewcommand{\arraystretch}{1.2}
+    \arrayrulecolor{black} % Ensures solid borders remain black
+    % \begin{tabular}{l l l c c c c c}
+    \begin{tabular}{l l l c c c c c c c}
+    \toprule
+    \textbf{Organization} & \textbf{Model} & \textbf{Release} & \multicolumn{3}{c}{\textbf{Real}} & \multicolumn{3}{c}{\textbf{Synthetic}} & \textbf{Overall} \\
+    \cmidrule(lr){4-6}
+    \cmidrule(lr){7-9}
+    & & & \textbf{Ego-centric} & \textbf{Exo-centric} & \textbf{Average} & \textbf{Directional} & \textbf{FP} & \textbf{Average} \\
+    \midrule
+         % \rowcolor[HTML]{e1f0f5}\multicolumn{8}{l}{\textbf{Baselines}} \\
+         % \midrule
+         User Study & Human Performance &  & 99.6 & 99.7 & 99.7 & 91.8 & 100 & 95.9  & 98.3     \\
+         Random & Random Selection  &  & 24.4 & 23.2 & 23.6 & 25.5 & 24.7 & 25.1 & 24.2    \\
+
+        \midrule
+        \rowcolor[HTML]{e1f0f5}\multicolumn{10}{l}{\textbf{Latest Proprietary VLMs}} \\
+        \midrule
+        OpenAI & GPT-4o & 2024-11 & \cellcolor[HTML]{FFB366}{\textbf{54.3}} & \cellcolor[HTML]{FFB366}{\textbf{61.2}} & \cellcolor[HTML]{FFB366}{\textbf{58.9}} & \cellcolor[HTML]{FFE5CC}{47.8} & 43.0 & 45.4 & \cellcolor[HTML]{FFCC99}{53.9} \\
+        \arrayrulecolor{lightgray} \hdashline
+        Google & Gemini 2.0 Pro & 2025-2 & 44.8 & \cellcolor[HTML]{FFE5CC}{50.5} & 48.7 & 42.8 & 41.8 & 42.3  & 46.3     \\
+        \hdashline
+        xAI & Grok-2-Vision & 2024-12 & 44.1 & 48.8 & 47.3 & \cellcolor[HTML]{FFCC99}{49.0} & 60.5 & \cellcolor[HTML]{FFE5CC}{54.8} & \cellcolor[HTML]{FFE5CC}{50.0} \\
+        \arrayrulecolor{black} \midrule
+        \rowcolor[HTML]{e1f0f5}\multicolumn{10}{l}{\textbf{Open-source Image VLMs}} \\
+        \midrule
+        Meta & Llama-3.2-11B-Vision & 2024-9 & 35.2 & 36.1 & 35.8 & 38.3 & 55.8 & 47.0 & 39.9   \\
+        \arrayrulecolor{lightgray} \hdashline
+        Microsoft & Phi-3.5-Vision & 2024-7 &  36.3 & 39.1 & 38.2 & 26.5 & 37.5 & 32.0 & 35.9 \\
+        \arrayrulecolor{lightgray} \hdashline
+        DeepSeek &  DeepSeek-VL2-Tiny & 2024-12 &  31.4 & 32.5 & 32.2 & 42.8 & 25.5 & 34.1 & 32.9 \\
+        % & DeepSeek-VL2 & 2024-8 &  - & - & - & - & -  \\
+        % & DeepSeek-VL2-Small & 2024-8 &  - & - & - & - & - \\
+        \arrayrulecolor{lightgray} \hdashline
+        Shanghai AI Lab & InternVL2.5-38B & 2024-11 & 42.8  & \cellcolor[HTML]{FFCC99}{53.2} & \cellcolor[HTML]{FFE5CC}{49.7} & 37.5 & 55.5 & 46.5 & 48.6\\
+        & InternVL2.5-8B & 2024-11 & 40.8 & 41.1 & 41.0 & 40.8 & 47.0 & 43.9 & 42.1   \\
+        & InternVL2-8B & 2024-6 & 33.2 & 38.2 & 36.5 & 34.8 & 58.0 & 46.4 & 40.2  \\
+        \arrayrulecolor{lightgray} \hdashline
+        Mistral AI & Pixtral-12B & 2024-9 & 36.3 & 32.9 & 34.0 & 41.0 & 17.3 & 29.1 & 32.2  \\
+        \arrayrulecolor{lightgray} \hdashline
+        Rhymes & Aria & 2024-11 &  42.3 & 44.0 & 43.5 & 35.3 & 56.3 & 45.8 & 44.3  \\
+        \arrayrulecolor{lightgray} \hdashline
+        HuggingFaceM4 & Idefics3-8B & 2024-8 & 34.3 & 36.2 & 35.6 & 33.5 & 47.3 & 40.4 & 37.4  \\
+        \arrayrulecolor{lightgray} \hdashline
+        H2O & H2OVL-Mississippi-2B & 2024-10 &  37.0 & 33.3 & 34.5 & 27.3 & 41.0 & 34.1 & 34.4  \\
+        \arrayrulecolor{black} \midrule
+        \rowcolor[HTML]{e1f0f5} \multicolumn{10}{l}{\textbf{Open-source Video VLMs}} \\
+        \midrule
+        Alibaba & Qwen2.5-VL-7B & 2025-1 & 42.3 & 45.0 & 44.1 & 39.3 & 48.5 & 43.9 & 44.0   \\
+        & Qwen2.5-VL-72B-AWQ & 2025-1 & \cellcolor[HTML]{FFE5CC}{49.9} & 48.7 & 49.1 & \cellcolor[HTML]{FFB366}{\textbf{54.3}} & \cellcolor[HTML]{FFB366}{\textbf{72.8}} & \cellcolor[HTML]{FFB366}{\textbf{63.5}} & \cellcolor[HTML]{FFB366}{\textbf{54.4}}  \\
+        & Qwen2-VL-7B & 2024-8 & 36.1 & 38.2 & 37.5 & 38.5 & 40.3 & 39.4 & 38.2 \\
+        & Qwen2-VL-72B-AWQ & 2024-9 & 43.0 & 46.2 & 45.2 & 43.8 & \cellcolor[HTML]{FFCC99}{71.0} & \cellcolor[HTML]{FFCC99}{57.4} & 49.7 \\
+        \hdashline
+        DAMO & VideoLLama3-2B & 2025-1 & 48.6 & 43.7 & 45.3 & 29.0 & \cellcolor[HTML]{FFE5CC}{69.8} & 49.4 & 46.8 \\
+        & VideoLLama3-7B & 2025-1 & 47.4 & 45.0 & 45.8 & 39.5 & 58.8 & 49.1 & 47.0 \\
+        & VideoLLama2.1-7B & 2024-10 & 43.0 & 36.0 & 38.2 & 31.5 & 40.0 & 35.8 & 37.3 \\
+        & VideoLLama2-7B & 2024-6 & 36.3 & 16.5 & 23.0 & 25.8 & 45.5 & 35.6 & 27.6 \\
+        \hdashline
+        OpenGVLab & InternVideo2.5-8B & 2025-1 &  \cellcolor[HTML]{FFCC99}{52.8} & 50.1 & \cellcolor[HTML]{FFCC99}{51.0} & 45.3 & 30.0 & 37.6  & 46.1 \\
+        & InternVideo2-8B & 2024-8 & 37.2 & 37.9 & 37.6 & 40.5 & 2.8 & 21.6 & 31.7\\
+        \hdashline
+        LLaVA & LLaVA-One-Vision-7B & 2024-9 & 32.5 & 33.1 & 32.9 & 32.8 & 36.0 & 34.4 & 33.5  \\
+        & LLaVA-NeXT-Video-7B & 2024-6 & 30.3 & 30.9 & 30.7 & 24.5 & 27.3 & 25.9 & 28.9  \\
+        & LLaVA-NeXT-Video-34B & 2024-6 & 37.2 & 34.9 & 35.7 & 31.5 & 56.3 & 43.9 & 38.7  \\
+        \arrayrulecolor{black} \bottomrule
+    \end{tabular}
+    }
+    \caption{\textbf{Evaluation on \texttt{VLM4D} Benchmark} across various proprietary and open-source VLMs. Top three performers in each category are highlighted from \colorbox[HTML]{FFB366}{dark} (highest) to \colorbox[HTML]{FFE5CC}{light} (third highest). Human and random selection baselines are included for reference.}
+\label{tab:result}
+\end{table*}  
+
+\section{Evaluation of \texttt{VLM4D} Benchmark}
+
+
+\subsection{Evaluation Setup}
+\paragraph{Benchmark Models}
+We evaluate over 10 of the most recently released VLMs thus covering a wide range of model sizes, architectures, and training methodologies. For open-source models, we include Llama-3.2-Vision~\cite{grattafiori2024llama}, DeepSeek-VL~\cite{lu2024deepseek}, InternVL2.5~\cite{chen2024expanding}, Pixtral~\cite{agrawal2024pixtral}, Aria~\cite{li2024aria}, Idefics~\cite{laurenccon2023obelics}, H2OVL~\cite{galib2024h2ovl}, Qwen2-VL~\cite{wang2024qwen2}, Qwen2.5-VL~\cite{yang2024qwen2}, VideoLLama2~\cite{cheng2024videollama}, VideoLLama3~\cite{zhang2025videollama}, Llava-One-Vision~\cite{li2024llava}, Llava-NeXT-Video~\cite{zhang2024llavanextvideo}, InternVideo2~\cite{wang2024internvideo2}, and InternVideo 2.5~\cite{wang2025internvideo2}. When available, we evaluate different parameter sizes for each model type, resulting overall in models ranging from 2 to 72 billion parameters. For closed-source VLMs, we evaluate GPT-4o~\cite{gpt4o}, Gemini 2.0 Pro~\cite{team2024gemini}, and Grok-2-Vision. 
+
+\paragraph{Evaluation Settings}
+The evaluations were performed in a zero-shot setting with the video or a set of sampled frames from the video followed by the prompt forming the input. For each model, we evaluate on two different inference settings. In the first setting, the model is directed to output the answer immediately without any reasoning (DO) and in the second evaluation setting, the model is directed to create intermediate reasoning steps, Chain of Thought (CoT)~\cite{wei2022chain}, before inferring the final answer. Additional details about the evaluation setup and prompts are provided in the Appendix.
+
+\paragraph{Metrics} Following prior work~\cite{yang2024thinking} and given the nature of our target task, we use multiple-choice questions for evaluation. The primary metric is accuracy on the multiple choice questions (MCQ). Given the two inference settings mentioned previously, we employ LLM-as-Judge following~\cite{zhao2025mmvu} to grade the VLMs' outputs. LLM-as-Judge was utilized instead of performing string or template matching as we found that especially during CoT, various VLMs may output all possible answers during the reasoning process in varying frequencies and with slight modifications to the format of the possible answer choices in MCQ. Each MCQ contains four possible answers.
+
+\subsection{Benchmark Results}
+\paragraph{VLMs Performance} The evaluation results in~\cref{tab:result} reveal several critical insights regarding the spatiotemporal reasoning capabilities of contemporary VLMs on the \texttt{VLM4D} benchmark. First, proprietary VLMs, particularly OpenAI’s GPT-4o, consistently outperform open-source models across nearly all real-world categories, highlighting the performance gap between closed-source and publicly available VLMs. Among open-source models, InternVideo2.5-8B and Qwen2.5-VL-72B-AWQ emerge as notable contenders, with Qwen2.5-VL-72B-AWQ achieving exceptional results on synthetic data, surpassing even GPT-4o. However, all models significantly trail behind human-level performance, emphasizing substantial room for improvement, especially in nuanced spatiotemporal reasoning. These findings underscore a critical gap in current VLM architectures, reinforcing the need for further research into structured 4D scene representations and improved spatiotemporal grounding strategies. We additionally show in ~\cref{fig:radar_plot} for the top-performing models their strengths and weaknesses in the fine-grained categories mentioned in the previous section. As expected, translational motion performs best, followed by rotational motion and spatiotemporal counting. 
+
+\paragraph{Human Level Performance}
+We use \textbf{Prolific}, an online platform designed to connect academic researchers with user research participants for human-level performance evaluation. The participants are English-speaking random users verified by this platform without prior knowledge of computer vision. We asked 51 candidates to answer the spatial awareness questions in our benchmark. Each question has four choices, and the user may select only one correct answer. We collect their answers and report the average precision in Table.~\ref{tab:result}
+
+
+
+%%%%%%%%%%%%%5
+
+
