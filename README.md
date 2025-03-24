@@ -1,4 +1,4 @@
-# MMWorld-bench.github.io
+# VLM4D.github.io
 
 
 This is the repository that contains source code for the [VLM4D website](VLM4D.github.io).
