@@ -42,6 +42,73 @@
   <!-- <script src="https://assets.crowd.aws/crowd-html-elements.js"></script> -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
+<style>
+/* Demo section custom styles */
+.demo-option {
+  min-width: 150px;
+  transition: all 0.3s ease;
+}
+
+.demo-option:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#demo-video {
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+#demo .box {
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Tab styles */
+.tabs.is-boxed li.is-active a {
+  background-color: #3273dc;
+  border-color: #3273dc;
+  color: white;
+}
+
+.tabs.is-boxed li a {
+  border: 1px solid #dbdbdb;
+  border-radius: 4px 4px 0 0;
+}
+
+.tabs.is-boxed li a:hover {
+  background-color: #f5f5f5;
+  border-bottom-color: #dbdbdb;
+}
+
+/* Progress bar container */
+.progress {
+  width: 200px;
+}
+
+/* Button animations */
+.demo-option.correct {
+  animation: correctAnswer 0.6s ease;
+}
+
+.demo-option.incorrect {
+  animation: incorrectAnswer 0.6s ease;
+}
+
+@keyframes correctAnswer {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes incorrectAnswer {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+</style>
+
 
 
 </section>
@@ -63,7 +130,7 @@
             <span class="author-block">
               <a href=" ">Shuwang Zhang</a><sup>1</sup>,</span>
             <span class="author-block">
-              <a href=" ">Aditya Nagachandra</a><sup>1</sup>,</span>
+              <a href="https://adityanagachandra.github.io/">Aditya Nagachandra</a><sup>1</sup>,</span>
             <span class="author-block">
               <a href=" ">Di Chang</a><sup>4</sup>,</span>
             <span class="author-block">
@@ -90,26 +157,14 @@
           </div>
 
           <div class="is-size-6 publication-authors">
-            <span class="author-block">*Denotes Equal Contribution</span>
+            <span class="author-block">*Equal Contribution</span>
           </div>
 
-          <div class="is-size-5 publication-authors">
+          <div class="is-size-5 publication-authors" style="margin-top: 0.5rem;">
             <span class="univerity-block" style="color: rgb(169, 16, 151);">ICCV 2025, Honolulu</span>
           </div>
-          
-        </div>
-        
-      </div>
-    </div>
-    <section class="hero">
-  <div class="hero-body">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column has-text-centered">
-          <br>
 
-          <div class="column has-text-centered">
-            <div class="publication-links">
+          <div class="publication-links" style="margin-top: 2rem;">
               <!-- PDF Link. -->
 
               <span class="link-block">
@@ -136,47 +191,117 @@
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon has-text-white">
                     <i class="fa-solid fa-trophy"></i>
-                      <!-- <p style="font-size:18px">🏆</p> -->
                   </span>
                   <span>Leaderboard</span>
                 </a>
               </span>
-    </a>
-</span>
             </div>
-
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
-  </div>
-  
-</section>
 
 
-
-
-
-
-<section class="section">
+<!-- Demo Section -->
+<section class="section" id="demo">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
+      <div class="column is-five-fifths">
+        <h2 class="title is-3">
+          <img id="demo_icon" width="5%" src="static/images/icon/question_rny.png"> 
+          Interactive Demo
+        </h2> 
+        <p class="subtitle is-5">Test your spatiotemporal reasoning skills with our VLM4D benchmark questions</p>
+      </div>
+    </div>
+
+    <!-- Category Selection -->
+    <div class="columns is-centered has-text-centered" style="margin-bottom: 2rem;">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            Vision-language models (VLMs) have shown remarkable capabilities in integrating linguistic and visual reasoning but remain fundamentally limited in understanding dynamic spatiotemporal interactions. Humans effortlessly track and reason about object movements, rotations, and perspective shifts—abilities essential for robust real-world understanding yet notably lacking in current VLMs. In this paper, we introduce VLM4D, the first benchmark specifically designed to evaluate the spatiotemporal reasoning capabilities of VLMs. Our benchmark comprises diverse real-world and synthetic videos accompanied by carefully curated question-answer pairs emphasizing translational and rotational motions, perspective awareness, and motion continuity. Through comprehensive evaluations of state-of-the-art open and closed-source VLMs, we identify significant performance gaps compared to human baselines, highlighting fundamental deficiencies in existing models. Extensive analysis reveals that VLMs struggle particularly with integrating multiple visual cues and maintaining temporal coherence. We further explore promising directions, such as leveraging 4D feature field reconstruction and targeted spatiotemporal supervised fine-tuning, demonstrating their effectiveness in enhancing spatiotemporal comprehension. Our work aims to encourage deeper exploration into improving VLMs’ spatial and temporal grounding, paving the way towards more capable and reliable visual intelligence for dynamic environments.
-          </p>
+        <div class="tabs is-centered is-large is-boxed">
+          <ul>
+            <li class="tab-link is-active" data-category="ego-centric">
+              <a><strong>Ego-centric</strong></a>
+            </li>
+            <li class="tab-link" data-category="exo-centric">
+              <a><strong>Exo-centric</strong></a>
+            </li>
+            <li class="tab-link" data-category="synthetic">
+              <a><strong>Synthetic</strong></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Demo Content -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-six-fifths">
+        <div class="box">
+          <!-- Question Navigation -->
+          <div class="level" style="margin-bottom: 1rem;">
+            <div class="level-left">
+              <div class="level-item">
+                <span class="tag is-info is-medium">
+                  <span id="current-question-info">Question 1 of 3</span>
+                </span>
+              </div>
+            </div>
+            <div class="level-right">
+              <div class="level-item">
+                <div class="buttons">
+                  <button id="prev-question" class="button is-small" disabled>
+                    <span class="icon"><i class="fas fa-chevron-left"></i></span>
+                    <span>Previous</span>
+                  </button>
+                  <button id="next-question" class="button is-small">
+                    <span>Next</span>
+                    <span class="icon"><i class="fas fa-chevron-right"></i></span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Video Player -->
+          <video id="demo-video" class="is-fullwidth" controls preload="metadata" style="max-height: 400px;">
+            <source src="file/parkour.mp4" type="video/mp4">
+            <source src="./file/parkour.mp4" type="video/mp4">
+            <p>Your browser does not support the video tag. Please try opening the video directly: <a href="file/parkour.mp4">parkour.mp4</a></p>
+          </video>
+          
+          <!-- Question Content -->
+          <div style="margin-top: 2rem;">
+            <h3 id="question-text" class="title is-4" style="color: #363636;">Which direction is he running toward?</h3>
+            
+            <div class="buttons is-centered" style="margin-top: 1.5rem;" id="answer-buttons">
+              <!-- Answer buttons will be dynamically generated -->
+            </div>
+            
+            <!-- Feedback -->
+            <div id="demo-feedback" style="margin-top: 1rem; display: none;">
+              <div class="notification" id="feedback-message"></div>
+            </div>
+
+            <!-- Progress Indicator -->
+            <div style="margin-top: 2rem;">
+              <div class="columns is-multiline is-centered">
+                <div class="column is-narrow">
+                  <span class="tag is-light">Score: <span id="score-display">0/0</span></span>
+                </div>
+                <div class="column is-narrow">
+                  <progress id="progress-bar" class="progress is-primary" value="0" max="100">0%</progress>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
-
-
-
 
 
 <section class="section">
@@ -198,6 +323,20 @@
 </section>
 
 
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Vision-language models (VLMs) have shown remarkable capabilities in integrating linguistic and visual reasoning but remain fundamentally limited in understanding dynamic spatiotemporal interactions. Humans effortlessly track and reason about object movements, rotations, and perspective shifts—abilities essential for robust real-world understanding yet notably lacking in current VLMs. In this paper, we introduce VLM4D, the first benchmark specifically designed to evaluate the spatiotemporal reasoning capabilities of VLMs. Our benchmark comprises diverse real-world and synthetic videos accompanied by carefully curated question-answer pairs emphasizing translational and rotational motions, perspective awareness, and motion continuity. Through comprehensive evaluations of state-of-the-art open and closed-source VLMs, we identify significant performance gaps compared to human baselines, highlighting fundamental deficiencies in existing models. Extensive analysis reveals that VLMs struggle particularly with integrating multiple visual cues and maintaining temporal coherence. We further explore promising directions, such as leveraging 4D feature field reconstruction and targeted spatiotemporal supervised fine-tuning, demonstrating their effectiveness in enhancing spatiotemporal comprehension. Our work aims to encourage deeper exploration into improving VLMs’ spatial and temporal grounding, paving the way towards more capable and reliable visual intelligence for dynamic environments.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 
 <section class="section">
@@ -730,6 +869,309 @@
     </div>
   </div>
 </footer>
+
+<script>
+// Demo interaction script with multiple questions
+document.addEventListener('DOMContentLoaded', function() {
+    // Question database
+    const questionDatabase = {
+        'ego-centric': [
+            {
+                video: 'file/parkour.mp4',
+                question: 'From the first-person perspective, which direction am I moving?',
+                options: ['A: Forward', 'B: Backward', 'C: Left', 'D: Right'],
+                correct: 'A',
+                explanation: 'In first-person view, the forward movement is clearly visible through the camera motion.'
+            },
+            {
+                video: 'file/parkour.mp4',
+                question: 'In this ego-centric view, how is the camera rotating?',
+                options: ['A: Clockwise', 'B: Counter-clockwise', 'C: No rotation', 'D: Up and down'],
+                correct: 'B',
+                explanation: 'The ego-centric perspective shows a counter-clockwise rotation as the viewpoint shifts.'
+            },
+            {
+                video: 'file/parkour.mp4',
+                question: 'From my perspective, what is the primary motion direction?',
+                options: ['A: Upward', 'B: Downward', 'C: Leftward', 'D: Rightward'],
+                correct: 'C',
+                explanation: 'The first-person view shows movement primarily to the left direction.'
+            }
+        ],
+        'exo-centric': [
+            {
+                video: 'file/parkour.mp4',
+                question: 'From an external viewpoint, which direction is the person running?',
+                options: ['A: Left', 'B: Right', 'C: Toward camera', 'D: Away from camera'],
+                correct: 'A',
+                explanation: 'From the third-person perspective, the person is clearly moving to the left.'
+            },
+            {
+                video: 'file/parkour.mp4',
+                question: 'In this exo-centric view, how is the subject oriented relative to the camera?',
+                options: ['A: Facing camera', 'B: Back to camera', 'C: Side profile', 'D: Upside down'],
+                correct: 'C',
+                explanation: 'The external viewpoint shows the subject in a side profile orientation.'
+            },
+            {
+                video: 'file/parkour.mp4',
+                question: 'What type of movement pattern is visible in this third-person view?',
+                options: ['A: Linear motion', 'B: Circular motion', 'C: Oscillating motion', 'D: Random motion'],
+                correct: 'A',
+                explanation: 'The third-person perspective clearly shows a linear movement pattern.'
+            }
+        ],
+        'synthetic': [
+            {
+                video: 'file/parkour.mp4',
+                question: 'In this synthetic scene, which direction is the object moving?',
+                options: ['A: North', 'B: South', 'C: East', 'D: West'],
+                correct: 'C',
+                explanation: 'The synthetic data shows clear eastward movement of the primary object.'
+            },
+            {
+                video: 'file/parkour.mp4',
+                question: 'What is the trajectory pattern in this synthetic environment?',
+                options: ['A: Straight line', 'B: Curved path', 'C: Zigzag pattern', 'D: Spiral motion'],
+                correct: 'B',
+                explanation: 'The synthetic scene demonstrates a curved trajectory pattern.'
+            },
+            {
+                video: 'file/parkour.mp4',
+                question: 'How many objects are in motion in this synthetic scene?',
+                options: ['A: One', 'B: Two', 'C: Three', 'D: Four or more'],
+                correct: 'A',
+                explanation: 'Analysis shows only one primary object in motion in this synthetic scene.'
+            }
+        ]
+    };
+
+    // State management
+    let currentCategory = 'ego-centric';
+    let currentQuestionIndex = 0;
+    let userAnswers = {};
+    let totalScore = 0;
+
+    // DOM elements
+    const tabLinks = document.querySelectorAll('.tab-link');
+    const videoElement = document.getElementById('demo-video');
+    const questionText = document.getElementById('question-text');
+    const answerButtonsContainer = document.getElementById('answer-buttons');
+    const feedbackDiv = document.getElementById('demo-feedback');
+    const feedbackMessage = document.getElementById('feedback-message');
+    const prevButton = document.getElementById('prev-question');
+    const nextButton = document.getElementById('next-question');
+    const currentQuestionInfo = document.getElementById('current-question-info');
+    const scoreDisplay = document.getElementById('score-display');
+    const progressBar = document.getElementById('progress-bar');
+
+    // Initialize
+    function init() {
+        initializeUserAnswers();
+        setupTabListeners();
+        setupNavigationListeners();
+        loadQuestion();
+        updateUI();
+    }
+
+    function initializeUserAnswers() {
+        Object.keys(questionDatabase).forEach(category => {
+            userAnswers[category] = new Array(questionDatabase[category].length).fill(null);
+        });
+    }
+
+    function setupTabListeners() {
+        tabLinks.forEach(tab => {
+            tab.addEventListener('click', function(e) {
+                e.preventDefault();
+                const newCategory = this.getAttribute('data-category');
+                if (newCategory !== currentCategory) {
+                    switchCategory(newCategory);
+                }
+            });
+        });
+    }
+
+    function setupNavigationListeners() {
+        prevButton.addEventListener('click', function() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                loadQuestion();
+                updateUI();
+            }
+        });
+
+        nextButton.addEventListener('click', function() {
+            const maxIndex = questionDatabase[currentCategory].length - 1;
+            if (currentQuestionIndex < maxIndex) {
+                currentQuestionIndex++;
+                loadQuestion();
+                updateUI();
+            }
+        });
+    }
+
+    function switchCategory(newCategory) {
+        currentCategory = newCategory;
+        currentQuestionIndex = 0;
+        
+        // Update tab appearance
+        tabLinks.forEach(tab => {
+            tab.classList.remove('is-active');
+            if (tab.getAttribute('data-category') === newCategory) {
+                tab.classList.add('is-active');
+            }
+        });
+
+        loadQuestion();
+        updateUI();
+        hideFeedback();
+    }
+
+    function loadQuestion() {
+        const currentQuestion = questionDatabase[currentCategory][currentQuestionIndex];
+        
+        // Update video source
+        const sources = videoElement.querySelectorAll('source');
+        sources.forEach(source => {
+            source.src = currentQuestion.video;
+        });
+        videoElement.load();
+
+        // Update question text
+        questionText.textContent = currentQuestion.question;
+
+        // Create answer buttons
+        createAnswerButtons(currentQuestion.options, currentQuestion.correct);
+    }
+
+    function createAnswerButtons(options, correctAnswer) {
+        answerButtonsContainer.innerHTML = '';
+        
+        options.forEach((option, index) => {
+            const button = document.createElement('button');
+            button.className = 'button is-medium demo-option';
+            button.style.margin = '0.5rem';
+            button.innerHTML = `<strong>${option}</strong>`;
+            
+            const optionLetter = option.charAt(0);
+            button.setAttribute('data-answer', optionLetter);
+            
+            // Check if this question was already answered
+            const userAnswer = userAnswers[currentCategory][currentQuestionIndex];
+            if (userAnswer) {
+                if (userAnswer === optionLetter) {
+                    if (userAnswer === correctAnswer) {
+                        button.classList.add('is-success');
+                    } else {
+                        button.classList.add('is-danger');
+                    }
+                }
+                if (optionLetter === correctAnswer && userAnswer !== correctAnswer) {
+                    button.classList.add('is-success');
+                }
+                button.disabled = true;
+            }
+
+            button.addEventListener('click', function() {
+                handleAnswerSelection(optionLetter, correctAnswer);
+            });
+
+            answerButtonsContainer.appendChild(button);
+        });
+    }
+
+    function handleAnswerSelection(selectedAnswer, correctAnswer) {
+        const currentQuestion = questionDatabase[currentCategory][currentQuestionIndex];
+        
+        // Store user answer
+        userAnswers[currentCategory][currentQuestionIndex] = selectedAnswer;
+
+        // Update button states
+        const buttons = answerButtonsContainer.querySelectorAll('.demo-option');
+        buttons.forEach(button => {
+            const buttonAnswer = button.getAttribute('data-answer');
+            button.classList.remove('is-light');
+            
+            if (buttonAnswer === selectedAnswer) {
+                if (selectedAnswer === correctAnswer) {
+                    button.classList.add('is-success', 'correct');
+                } else {
+                    button.classList.add('is-danger', 'incorrect');
+                }
+            }
+            
+            if (buttonAnswer === correctAnswer && selectedAnswer !== correctAnswer) {
+                button.classList.add('is-success');
+            }
+            
+            button.disabled = true;
+        });
+
+        // Show feedback
+        showFeedback(selectedAnswer === correctAnswer, currentQuestion.explanation);
+        
+        // Update score and progress
+        updateScore();
+        updateUI();
+    }
+
+    function showFeedback(isCorrect, explanation) {
+        feedbackDiv.style.display = 'block';
+        
+        if (isCorrect) {
+            feedbackMessage.className = 'notification is-success';
+            feedbackMessage.innerHTML = `<strong>Correct!</strong> ${explanation}`;
+        } else {
+            feedbackMessage.className = 'notification is-warning';
+            feedbackMessage.innerHTML = `<strong>Incorrect.</strong> ${explanation}`;
+        }
+    }
+
+    function hideFeedback() {
+        feedbackDiv.style.display = 'none';
+    }
+
+    function updateScore() {
+        let correct = 0;
+        let total = 0;
+        
+        Object.keys(userAnswers).forEach(category => {
+            userAnswers[category].forEach((answer, index) => {
+                if (answer !== null) {
+                    total++;
+                    if (answer === questionDatabase[category][index].correct) {
+                        correct++;
+                    }
+                }
+            });
+        });
+        
+        totalScore = correct;
+        scoreDisplay.textContent = `${correct}/${total}`;
+    }
+
+    function updateUI() {
+        const maxIndex = questionDatabase[currentCategory].length - 1;
+        const totalQuestions = questionDatabase[currentCategory].length;
+        
+        // Update question info
+        currentQuestionInfo.textContent = `Question ${currentQuestionIndex + 1} of ${totalQuestions}`;
+        
+        // Update navigation buttons
+        prevButton.disabled = currentQuestionIndex === 0;
+        nextButton.disabled = currentQuestionIndex === maxIndex;
+        
+        // Update progress bar
+        const answeredInCategory = userAnswers[currentCategory].filter(answer => answer !== null).length;
+        const progressPercentage = (answeredInCategory / totalQuestions) * 100;
+        progressBar.value = progressPercentage;
+    }
+
+    // Initialize the demo
+    init();
+});
+</script>
 
 </body>
 </html>
