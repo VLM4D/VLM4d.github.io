@@ -267,9 +267,10 @@
 
           <!-- Video Player -->
           <video id="demo-video" class="is-fullwidth" controls preload="metadata" style="max-height: 400px;">
+            <source src="https://huggingface.co/datasets/shijiezhou/VLM4D/resolve/main/videos_real/davis/parkour.mp4" type="video/mp4">
             <source src="file/parkour.mp4" type="video/mp4">
             <source src="./file/parkour.mp4" type="video/mp4">
-            <p>Your browser does not support the video tag. Please try opening the video directly: <a href="file/parkour.mp4">parkour.mp4</a></p>
+            <p>Your browser does not support the video tag. Please try opening the video directly: <a href="https://huggingface.co/datasets/shijiezhou/VLM4D/resolve/main/videos_real/davis/parkour.mp4">parkour.mp4</a></p>
           </video>
           
           <!-- Question Content -->
@@ -877,21 +878,21 @@ document.addEventListener('DOMContentLoaded', function() {
     const questionDatabase = {
         'ego-centric': [
             {
-                video: 'file/parkour.mp4',
+                video: 'https://huggingface.co/datasets/shijiezhou/VLM4D/resolve/main/videos_real/davis/parkour.mp4',
                 question: 'From the first-person perspective, which direction am I moving?',
                 options: ['A: Forward', 'B: Backward', 'C: Left', 'D: Right'],
                 correct: 'A',
                 explanation: 'In first-person view, the forward movement is clearly visible through the camera motion.'
             },
             {
-                video: 'file/parkour.mp4',
+                video: 'https://huggingface.co/datasets/shijiezhou/VLM4D/resolve/main/videos_real/davis/parkour.mp4',
                 question: 'In this ego-centric view, how is the camera rotating?',
                 options: ['A: Clockwise', 'B: Counter-clockwise', 'C: No rotation', 'D: Up and down'],
                 correct: 'B',
                 explanation: 'The ego-centric perspective shows a counter-clockwise rotation as the viewpoint shifts.'
             },
             {
-                video: 'file/parkour.mp4',
+                video: 'https://huggingface.co/datasets/shijiezhou/VLM4D/resolve/main/videos_real/davis/parkour.mp4',
                 question: 'From my perspective, what is the primary motion direction?',
                 options: ['A: Upward', 'B: Downward', 'C: Leftward', 'D: Rightward'],
                 correct: 'C',
@@ -900,21 +901,21 @@ document.addEventListener('DOMContentLoaded', function() {
         ],
         'exo-centric': [
             {
-                video: 'file/parkour.mp4',
+                video: 'https://huggingface.co/datasets/shijiezhou/VLM4D/resolve/main/videos_real/davis/parkour.mp4',
                 question: 'From an external viewpoint, which direction is the person running?',
                 options: ['A: Left', 'B: Right', 'C: Toward camera', 'D: Away from camera'],
                 correct: 'A',
                 explanation: 'From the third-person perspective, the person is clearly moving to the left.'
             },
             {
-                video: 'file/parkour.mp4',
+                video: 'https://huggingface.co/datasets/shijiezhou/VLM4D/resolve/main/videos_real/davis/parkour.mp4',
                 question: 'In this exo-centric view, how is the subject oriented relative to the camera?',
                 options: ['A: Facing camera', 'B: Back to camera', 'C: Side profile', 'D: Upside down'],
                 correct: 'C',
                 explanation: 'The external viewpoint shows the subject in a side profile orientation.'
             },
             {
-                video: 'file/parkour.mp4',
+                video: 'https://huggingface.co/datasets/shijiezhou/VLM4D/resolve/main/videos_real/davis/parkour.mp4',
                 question: 'What type of movement pattern is visible in this third-person view?',
                 options: ['A: Linear motion', 'B: Circular motion', 'C: Oscillating motion', 'D: Random motion'],
                 correct: 'A',
@@ -923,21 +924,21 @@ document.addEventListener('DOMContentLoaded', function() {
         ],
         'synthetic': [
             {
-                video: 'file/parkour.mp4',
+                video: 'https://huggingface.co/datasets/shijiezhou/VLM4D/resolve/main/videos_real/davis/parkour.mp4',
                 question: 'In this synthetic scene, which direction is the object moving?',
                 options: ['A: North', 'B: South', 'C: East', 'D: West'],
                 correct: 'C',
                 explanation: 'The synthetic data shows clear eastward movement of the primary object.'
             },
             {
-                video: 'file/parkour.mp4',
+                video: 'https://huggingface.co/datasets/shijiezhou/VLM4D/resolve/main/videos_real/davis/parkour.mp4',
                 question: 'What is the trajectory pattern in this synthetic environment?',
                 options: ['A: Straight line', 'B: Curved path', 'C: Zigzag pattern', 'D: Spiral motion'],
                 correct: 'B',
                 explanation: 'The synthetic scene demonstrates a curved trajectory pattern.'
             },
             {
-                video: 'file/parkour.mp4',
+                video: 'https://huggingface.co/datasets/shijiezhou/VLM4D/resolve/main/videos_real/davis/parkour.mp4',
                 question: 'How many objects are in motion in this synthetic scene?',
                 options: ['A: One', 'B: Two', 'C: Three', 'D: Four or more'],
                 correct: 'A',
