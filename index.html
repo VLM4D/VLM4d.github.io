@@ -357,7 +357,9 @@
               <source src="static/videos/horsejump-stick_h264.mp4" type="video/mp4">
               <source src="static/videos/jet-ski_h264.mp4" type="video/mp4">
               <source src="static/videos/cat_h264.mp4" type="video/mp4">
-              <source src="static/videos/ego4d_007.mp4" type="video/mp4">
+              <source src="static/videos/ego4d_008.mp4" type="video/mp4">
+              <source src="static/videos/ego4d_011.mp4" type="video/mp4">
+              <source src="static/videos/ego4d_050.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
           </div>
@@ -889,44 +891,44 @@ document.addEventListener('DOMContentLoaded', function() {
                 question: 'What direction is the horse in the foreground moving towards?',
                 options: ['A: Not moving', 'B: Right', 'C: Downhill', 'D: Left'],
                 correct: 'B',
-                explanation: 'This is an example of translational motion question.'
+                explanation: 'This is an example of exo-centric translational motion question.'
             },
             {
                 video: 'static/videos/jet-ski_h264.mp4',
                 question: 'How is the jet-ski rotating?',
                 options: ['A: Not rotating', 'B: Clockwise', 'C: Counter-clockwise', 'D: No jet-ski there'],
                 correct: 'B',
-                explanation: 'This is an example of rotational motion question.'
+                explanation: 'This is an example of exo-centric rotational motion question.'
             },
             {
                 video: 'static/videos/cat_h264.mp4',
                 question: 'What direction is the dog moving towards?',
                 options: ['A: Right', 'B: Left', 'C: No dogs in the video', 'D: Not moving'],
                 correct: 'C',
-                explanation: 'This is an example of a false-positive question that tests VLM\'s critical thinking.'
+                explanation: 'This is an example of exo-centric false-positive question that tests VLM\'s critical thinking.'
             }
         ],
         'ego-centric': [
             {
-                video: 'static/parkour_h264.mp4',
-                question: 'From an external viewpoint, which direction is the person running?',
-                options: ['A: Left', 'B: Right', 'C: Toward camera', 'D: Away from camera'],
+                video: 'static/videos/ego4d_008.mp4',
+                question: 'Which direction does the person move the cutlet from it\'s original position?',
+                options: ['A: Right', 'B: Down', 'C: Up', 'D: Left'],
                 correct: 'A',
-                explanation: 'From the third-person perspective, the person is clearly moving to the left.'
+                explanation: 'This is an example of ego-centric translational motion question.'
             },
             {
-                video: 'static/parkour_h264.mp4',
-                question: 'In this exo-centric view, how is the subject oriented relative to the camera?',
-                options: ['A: Facing camera', 'B: Back to camera', 'C: Side profile', 'D: Upside down'],
+                video: 'static/videos/ego4d_011.mp4',
+                question: 'Which direction does the person turn to pick up the branch?',
+                options: ['A: Forward', 'B: Right', 'C: Backward', 'D: Left'],
+                correct: 'B',
+                explanation: 'This is an example of ego-centric rotational motion question.'
+            },
+            {
+                video: 'static/videos/ego4d_050.mp4',
+                question: 'How many times does the person look to the right before turning?',
+                options: ['A: Twice', 'B: Not at all', 'C: Once', 'D: Three times'],
                 correct: 'C',
-                explanation: 'The external viewpoint shows the subject in a side profile orientation.'
-            },
-            {
-                video: 'static/parkour_h264.mp4',
-                question: 'What type of movement pattern is visible in this third-person view?',
-                options: ['A: Linear motion', 'B: Circular motion', 'C: Oscillating motion', 'D: Random motion'],
-                correct: 'A',
-                explanation: 'The third-person perspective clearly shows a linear movement pattern.'
+                explanation: 'This is an example of ego-centric counting question.'
             }
         ],
         'synthetic': [
