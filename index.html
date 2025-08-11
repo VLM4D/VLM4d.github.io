@@ -362,7 +362,7 @@
               <source src="static/videos/ego4d_050.mp4" type="video/mp4">
               <source src="static/videos/synth_031.mp4" type="video/mp4">
               <source src="static/videos/synth_384.mp4" type="video/mp4">
-              <source src="static/videos/synth_064.mp4" type="video/mp4">
+              <source src="static/videos/synth_216.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
           </div>
@@ -905,10 +905,10 @@ document.addEventListener('DOMContentLoaded', function() {
             },
             {
                 video: 'static/videos/cat_h264.mp4',
-                question: 'What direction is the dog moving towards?',
-                options: ['A: Right', 'B: Left', 'C: No dogs in the video', 'D: Not moving'],
-                correct: 'C',
-                explanation: 'This is an example of exo-centric false-positive question that tests VLM\'s critical thinking.'
+                question: 'Is the cat turning to the left or right from its own perspective?',
+                options: ['A: Left', 'B: Right', 'C: Not turning', 'D: Not sure'],
+                correct: 'A',
+                explanation: 'This is an example question that tests VLM\'s spatiotemporal reasoning from different perspectives.'
             }
         ],
         'ego-centric': [
@@ -950,10 +950,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 explanation: 'This is an example of synthetic translational motion question.'
             },
             {
-                video: 'static/videos/synth_064.mp4',
-                question: 'Which direction did the skateboard move?',
-                options: ['A: Right', 'B: Not moving', 'C: Left', 'D: No skateboard there'],
-                correct: 'D',
+                video: 'static/videos/synth_216.mp4',
+                question: 'Which direction did the dog move?',
+                options: ['A: No dog there', 'B: Not moving', 'C: Left', 'D: Right'],
+                correct: 'A',
                 explanation: 'This is an example of synthetic false-positive question that tests VLM\'s critical thinking.'
             }
         ]
