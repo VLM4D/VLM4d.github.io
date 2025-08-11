@@ -57,11 +57,31 @@
 #demo-video {
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 400px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
 }
 
 #demo .box {
   border-radius: 15px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Video container styles */
+.video-container {
+  position: relative;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* Video wrapper to center the video */
+.video-wrapper {
+  display: inline-block;
+  position: relative;
 }
 
 /* Tab styles */
@@ -132,7 +152,7 @@
             <span class="author-block">
               <a href="https://adityanagachandra.github.io/">Aditya Nagachandra</a><sup>1</sup>,</span>
             <span class="author-block">
-              <a href=" ">Di Chang</a><sup>4</sup>,</span>
+              <a href="https://boese0601.github.io/">Di Chang</a><sup>4</sup>,</span>
             <span class="author-block">
               <a href="https://www.dongdongchen.bid/">Dongdong Chen</a><sup>2</sup>,</span>
             <span class="author-block">
@@ -164,7 +184,7 @@
             <span class="univerity-block" style="color: rgb(169, 16, 151);">ICCV 2025, Honolulu</span>
           </div>
 
-          <div class="publication-links" style="margin-top: 2rem;">
+          <div class="publication-links" style="margin-top: 1rem;">
               <!-- PDF Link. -->
 
               <span class="link-block">
@@ -203,6 +223,72 @@
   </div>
 </section>
 
+<!-- TLDR Section -->
+<section class="section" style="margin-top: -4rem; margin-bottom: -0.5rem;">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <!-- <h2 class="title is-4" style="color: #3273dc; margin-bottom: 1rem;">TL;DR</h2> -->
+        <div class="content">
+          <p style="font-size: 1.3rem; color: #363636; font-weight: 500;">
+            <span style="color: red; font-weight: 600;">TL;DR:</span> The first benchmark explicitly designed to evaluate the spatiotemporal (4D) reasoning capabilities of Vision Language Models (VLMs).
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="margin-top: -3rem;">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+    </div>
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-six-fifths">  
+            <img id="model" width="80%" src="./static/images/figures/teaster_v5.png">
+            <div style="width: 100%; margin: 0 auto;">
+              <div class="content has-text-justified">
+                <p><b>Spatiotemporal (4D) Awareness.</b> Humans intuitively reason in 4D (3D space + time), effortlessly reconstructing the dynamic spatial trajectory of moving objects from any perspective. In contrast, current Vision Language Models (VLMs) typically rely on aggregating 2D visual features across time, leading to incorrect predictions when motion understanding and interpretation requires deeper spatiotemporal reasoning. In this example, humans correctly perceive the car moving to the right, while the VLM (GPT-4o) inaccurately predicts leftward movement, suggesting VLMs struggle to perform spatiotemporal reasoning.</p>
+              </div>
+            </div>   
+        </div>
+  </div>
+</section>
+
+<section class="section" style="margin-top: -2rem;">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Vision language models (VLMs) have shown remarkable capabilities in integrating linguistic and visual reasoning but remain fundamentally limited in understanding dynamic spatiotemporal interactions. Humans effortlessly track and reason about object movements, rotations, and perspective shifts-abilities essential for robust dynamic real-world understanding yet notably lacking in current VLMs. In this paper, we introduce VLM4D, the first benchmark specifically designed to evaluate the spatiotemporal reasoning capabilities of VLMs. Our benchmark comprises diverse real-world and synthetic videos accompanied by carefully curated question-answer pairs emphasizing translational and rotational motions, perspective awareness, and motion continuity. Through comprehensive evaluations of state-of-the-art open and closed-source VLMs, we identify significant performance gaps compared to human baselines, highlighting fundamental deficiencies in existing models. Extensive analysis reveals that VLMs struggle particularly with integrating multiple visual cues and maintaining temporal coherence. We further explore promising directions, such as leveraging 4D feature field reconstruction and targeted spatiotemporal supervised fine-tuning, demonstrating their effectiveness in enhancing spatiotemporal comprehension. Our work aims to encourage deeper exploration into improving VLMs' spatial and temporal grounding, paving the way towards more capable and reliable visual intelligence for dynamic environments.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-five-fifths">
+        <h2 class="title is-3"><img id="painting_icon" width="5%" src="https://cdn-icons-png.flaticon.com/512/5379/5379860.png"> Distribution of Dataset Sources and Annotations. </h2> 
+      </div>
+    </div>
+
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-six-fifths">  
+            <img id="model" width="50%" src="./static/images/figures/piechart_dataset_stats.png">
+            <div style="width: 100%; margin: 0 auto;">
+              <div class="content has-text-justified">
+                <p>Overview of the dataset composition, illustrating the proportions of real third-person (exo-centric) videos (<a href="https://davischallenge.org/" target="_blank" style="color: #3273dc;">DAVIS</a>, <a href="https://youtube-vos.org/" target="_blank" style="color: #3273dc;">YouTube-VOS</a>), real first-person (ego-centric) videos (<a href="https://ego4d-data.org/" target="_blank" style="color: #3273dc;">Ego4D</a>), and synthetic videos (<a href="https://www.nvidia.com/en-us/ai/cosmos/" target="_blank" style="color: #3273dc;">Cosmos</a>). The real video data is further categorized by annotation types, including translational, rotational, action, counting, and false positive queries (targeting nonexistent events to assess critical reasoning).</p>
+              </div>
+            </div>   
+        </div>
+  </div>
+</section>
 
 <!-- Demo Section -->
 <section class="section" id="demo">
@@ -210,7 +296,7 @@
     <div class="columns is-centered has-text-centered">
       <div class="column is-five-fifths">
         <h2 class="title is-3">
-          <img id="demo_icon" width="5%" src="static/images/icon/question_rny.png"> 
+          <img id="demo_icon" width="5%" src="static/images/icon/question.png"> 
           Interactive Demo
         </h2> 
         <p class="subtitle is-5">Test your spatiotemporal reasoning skills with our VLM4D benchmark questions</p>
@@ -222,11 +308,11 @@
       <div class="column is-four-fifths">
         <div class="tabs is-centered is-large is-boxed">
           <ul>
-            <li class="tab-link is-active" data-category="ego-centric">
-              <a><strong>Ego-centric</strong></a>
-            </li>
-            <li class="tab-link" data-category="exo-centric">
+            <li class="tab-link is-active" data-category="exo-centric">
               <a><strong>Exo-centric</strong></a>
+            </li>
+            <li class="tab-link" data-category="ego-centric">
+              <a><strong>Ego-centric</strong></a>
             </li>
             <li class="tab-link" data-category="synthetic">
               <a><strong>Synthetic</strong></a>
@@ -266,12 +352,15 @@
           </div>
 
           <!-- Video Player -->
-          <video id="demo-video" class="is-fullwidth" controls preload="metadata" style="max-height: 400px;">
-            <source src="https://huggingface.co/datasets/shijiezhou/VLM4D/resolve/main/videos_real/davis/parkour.mp4" type="video/mp4">
-            <source src="file/parkour.mp4" type="video/mp4">
-            <source src="./file/parkour.mp4" type="video/mp4">
-            <p>Your browser does not support the video tag. Please try opening the video directly: <a href="https://huggingface.co/datasets/shijiezhou/VLM4D/resolve/main/videos_real/davis/parkour.mp4">parkour.mp4</a></p>
-          </video>
+          <div class="video-wrapper">
+            <video id="demo-video" controls preload="metadata" playsinline onerror="handleVideoError(this)" onloadeddata="handleVideoLoaded(this)">
+              <source src="static/videos/horsejump-stick_h264.mp4" type="video/mp4">
+              <source src="static/videos/jet-ski_h264.mp4" type="video/mp4">
+              <source src="static/videos/cat_h264.mp4" type="video/mp4">
+              <source src="static/videos/ego4d_007.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
           
           <!-- Question Content -->
           <div style="margin-top: 2rem;">
@@ -309,105 +398,7 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-five-fifths">
-        <h2 class="title is-3"><img id="painting_icon" width="7%" src="https://cdn-icons-png.flaticon.com/512/5379/5379860.png"> Spatiotemporal (4D) Awareness. </h2> 
-      </div>
-    </div>
-
-        <div class="columns is-centered has-text-centered">
-          <div class="column is-six-fifths">  
-            <img id="model" width="80%" src="./static/images/figures/teaster_v5.png">
-            <h3 class="subtitle has-text-centered">
-              <p style="font-family:Times New Roman"><b>Figure 1. Spatiotemporal (4D) Awareness. Humans intuitively reason in 4D (3D space + time), effortlessly reconstructing the dynamic spatial trajectory of moving objects from any perspective. In contrast, current Vision Language Models (VLMs) typically rely on aggregating 2D visual features across time, leading to incorrect predictions when motion understanding and interpretation requires deeper spatiotemporal reasoning. In this example, humans correctly perceive the car moving to the right, while the VLM (GPT-4o) inaccurately predicts leftward movement, suggesting VLMs struggle to perform spatiotemporal reasoning. </b></p>
-            </h3>   
-        </div>
-  </div>
-</section>
-
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            Vision-language models (VLMs) have shown remarkable capabilities in integrating linguistic and visual reasoning but remain fundamentally limited in understanding dynamic spatiotemporal interactions. Humans effortlessly track and reason about object movements, rotations, and perspective shifts—abilities essential for robust real-world understanding yet notably lacking in current VLMs. In this paper, we introduce VLM4D, the first benchmark specifically designed to evaluate the spatiotemporal reasoning capabilities of VLMs. Our benchmark comprises diverse real-world and synthetic videos accompanied by carefully curated question-answer pairs emphasizing translational and rotational motions, perspective awareness, and motion continuity. Through comprehensive evaluations of state-of-the-art open and closed-source VLMs, we identify significant performance gaps compared to human baselines, highlighting fundamental deficiencies in existing models. Extensive analysis reveals that VLMs struggle particularly with integrating multiple visual cues and maintaining temporal coherence. We further explore promising directions, such as leveraging 4D feature field reconstruction and targeted spatiotemporal supervised fine-tuning, demonstrating their effectiveness in enhancing spatiotemporal comprehension. Our work aims to encourage deeper exploration into improving VLMs’ spatial and temporal grounding, paving the way towards more capable and reliable visual intelligence for dynamic environments.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-five-fifths">
-        <h2 class="title is-3"><img id="painting_icon" width="5%" src="https://cdn-icons-png.flaticon.com/512/5379/5379860.png"> Distribution of Dataset Sources and Annotations. </h2> 
-      </div>
-    </div>
-
-        <div class="columns is-centered has-text-centered">
-          <div class="column is-six-fifths">  
-            <img id="model" width="30%" src="./static/images/figures/piechart_dataset_stats.png">
-            <h3 class="subtitle has-text-centered">
-              <p style="font-family:Times New Roman"><b>Figure 2. Distribution of Dataset Sources and Annotations. Breakdown of our dataset illustrating the proportions of data sourced from third-person (Davis, YouTube), first-person (Ego4D), and synthetic data, categorized by annotation types: translational, rotational, action, counting, and false positives. </b></p>
-            </h3>   
-        </div>
-  </div>
-</section>
-
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-five-fifths">
-        <h2 class="title is-3"><img id="painting_icon" width="5%" src="https://cdn-icons-png.flaticon.com/512/5379/5379860.png"> Dataset Generation and Annotation</h2> 
-      </div>
-    </div>
-
-        <div class="columns is-centered has-text-centered">
-          <div class="column is-six-fifths">  
-            <img id="model" width="100%" src="./static/images/figures/dataset_generation_v2.png">
-            <h3 class="subtitle has-text-centered">
-              <p style="font-family:Times New Roman"><b>Figure 3. Dataset Generation and Annotation Pipeline. Our dataset was constructed by collecting real videos and generating synthetic data, followed by human-in-the-loop quality reviews to address ambiguous videos and annotations. After temporal alignment and quality assurance, human-annotated questions and answers were created, complemented by multiple-choice questions generated by large language models (LLMs). The final dataset includes real-world and synthetic video data with comprehensive VLM scoring metrics. </b></p>
-            </h3>   
-        </div>
-  </div>
-</section>
-
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-five-fifths">
-        <h2 class="title is-3"><img id="painting_icon" width="5%" src="https://cdn-icons-png.flaticon.com/512/5379/5379860.png"> Qualitative Examples of Dataset Annotations. </h2> 
-      </div>
-    </div>
-
-        <div class="columns is-centered has-text-centered">
-          <div class="column is-six-fifths">     
-            <img id="model" width="50%" src="./static/images/figures/dataset_qualitative_v3.png">
-            <h3 class="subtitle has-text-centered">
-              <p style="font-family:Times New Roman"><b>Figure 4. (Top) A third-person video with translational annotations ("camel turning left from its perspective"). (Middle) A first-person video with a rotational question ("clockwise rotation of ladle"). (Bottom) A synthetic scene with action recognition "robotic dog moving left".</b></p>
-            </h3>   
-
-
-        </div>
-  </div>
-</section>
-
-
-
-
-
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-five-fifths">
-        <h2 class="title is-3"><img id="painting_icon" width="5%" src="https://cdn-icons-png.flaticon.com/512/5379/5379860.png"> Model Performance</h2> 
+        <h2 class="title is-3"><img id="painting_icon" width="5%" src="static/images/icon/grades.png"> Model Performance</h2> 
       </div>
     </div>
 
@@ -420,11 +411,11 @@
       </div>
     </div>
     <div class="columns is-centered has-text-centered">
-      <div class="column is-full">
-        <h3 class="subtitle has-text-centered">
-          <p style="font-family:Times New Roman"><b>Figure 5. Model Accuracy Across Real Scene Question Categories of top-performing VLMs (left). Comparison of CoT and DO Accuracy Across Models (right).</b></p>
-        </h3>   
-      </div>
+       <div style="width: 100%; margin: 0 auto;">
+              <div class="content has-text-justified">
+                <p><b>(Left)</b> Comparison of accuracy across types of spatiotemporal questions. <b>(Right)</b> Accuracy comparison between Chain-of-Thought (CoT) and Direct Output (DO) prompting across VLMs.</p>
+              </div>
+       </div>   
     </div>
   </div>
 </section>
@@ -438,11 +429,14 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered m-6">
       <div class="column is-full has-text-centered content">
-        <h2 class="title is-3">Leaderboard</h2>
+        <!-- <h2 class="title is-3">Leaderboard</h2> -->
+        <div class="column is-five-fifths">
+        <h2 class="title is-3"><img id="painting_icon" width="5%" src="static/images/icon/winner.png"> Leaderboard</h2> 
+        </div>
         <div class="content">
           <div class="content has-text-justified">
             <p>
-              Evaluation on VLM4D Benchmark across various proprietary and open-source VLMs.
+              We report the evaluation using CoT on VLM4D Benchmark across various proprietary and open-source VLMs.
             </p>
           </div>    
           <!-- Validation Set Leaderboard -->
@@ -812,7 +806,7 @@
         <td>37.5</td>
         <td>36.3</td>
     </tr>
-    <tr>
+    <tr style="border-bottom: 1px dashed lightgray;">
         <td>LLaVA-NeXT-Video-34B</td>
         <td>2024-6</td>
         <td>29.6</td>
@@ -872,50 +866,63 @@
 </footer>
 
 <script>
+// Video error handling functions
+function handleVideoError(video) {
+    console.error('Video failed to load:', video.currentSrc);
+    const error = video.error;
+    if (error) {
+        console.error('Error code:', error.code);
+    }
+}
+
+function handleVideoLoaded(video) {
+    console.log('Video loaded successfully:', video.currentSrc);
+}
+
 // Demo interaction script with multiple questions
 document.addEventListener('DOMContentLoaded', function() {
     // Question database
     const questionDatabase = {
-        'ego-centric': [
-            {
-                video: 'https://huggingface.co/datasets/shijiezhou/VLM4D/resolve/main/videos_real/davis/parkour.mp4',
-                question: 'From the first-person perspective, which direction am I moving?',
-                options: ['A: Forward', 'B: Backward', 'C: Left', 'D: Right'],
-                correct: 'A',
-                explanation: 'In first-person view, the forward movement is clearly visible through the camera motion.'
-            },
-            {
-                video: 'https://huggingface.co/datasets/shijiezhou/VLM4D/resolve/main/videos_real/davis/parkour.mp4',
-                question: 'In this ego-centric view, how is the camera rotating?',
-                options: ['A: Clockwise', 'B: Counter-clockwise', 'C: No rotation', 'D: Up and down'],
-                correct: 'B',
-                explanation: 'The ego-centric perspective shows a counter-clockwise rotation as the viewpoint shifts.'
-            },
-            {
-                video: 'https://huggingface.co/datasets/shijiezhou/VLM4D/resolve/main/videos_real/davis/parkour.mp4',
-                question: 'From my perspective, what is the primary motion direction?',
-                options: ['A: Upward', 'B: Downward', 'C: Leftward', 'D: Rightward'],
-                correct: 'C',
-                explanation: 'The first-person view shows movement primarily to the left direction.'
-            }
-        ],
         'exo-centric': [
             {
-                video: 'https://huggingface.co/datasets/shijiezhou/VLM4D/resolve/main/videos_real/davis/parkour.mp4',
+                video: 'static/videos/horsejump-stick_h264.mp4',
+                question: 'What direction is the horse in the foreground moving towards?',
+                options: ['A: Not moving', 'B: Right', 'C: Downhill', 'D: Left'],
+                correct: 'B',
+                explanation: 'This is an example of translational motion question.'
+            },
+            {
+                video: 'static/videos/jet-ski_h264.mp4',
+                question: 'How is the jet-ski rotating?',
+                options: ['A: Not rotating', 'B: Clockwise', 'C: Counter-clockwise', 'D: No jet-ski there'],
+                correct: 'B',
+                explanation: 'This is an example of rotational motion question.'
+            },
+            {
+                video: 'static/videos/cat_h264.mp4',
+                question: 'What direction is the dog moving towards?',
+                options: ['A: Right', 'B: Left', 'C: No dogs in the video', 'D: Not moving'],
+                correct: 'C',
+                explanation: 'This is an example of a false-positive question that tests VLM\'s critical thinking.'
+            }
+        ],
+        'ego-centric': [
+            {
+                video: 'static/parkour_h264.mp4',
                 question: 'From an external viewpoint, which direction is the person running?',
                 options: ['A: Left', 'B: Right', 'C: Toward camera', 'D: Away from camera'],
                 correct: 'A',
                 explanation: 'From the third-person perspective, the person is clearly moving to the left.'
             },
             {
-                video: 'https://huggingface.co/datasets/shijiezhou/VLM4D/resolve/main/videos_real/davis/parkour.mp4',
+                video: 'static/parkour_h264.mp4',
                 question: 'In this exo-centric view, how is the subject oriented relative to the camera?',
                 options: ['A: Facing camera', 'B: Back to camera', 'C: Side profile', 'D: Upside down'],
                 correct: 'C',
                 explanation: 'The external viewpoint shows the subject in a side profile orientation.'
             },
             {
-                video: 'https://huggingface.co/datasets/shijiezhou/VLM4D/resolve/main/videos_real/davis/parkour.mp4',
+                video: 'static/parkour_h264.mp4',
                 question: 'What type of movement pattern is visible in this third-person view?',
                 options: ['A: Linear motion', 'B: Circular motion', 'C: Oscillating motion', 'D: Random motion'],
                 correct: 'A',
@@ -924,21 +931,21 @@ document.addEventListener('DOMContentLoaded', function() {
         ],
         'synthetic': [
             {
-                video: 'https://huggingface.co/datasets/shijiezhou/VLM4D/resolve/main/videos_real/davis/parkour.mp4',
+                video: 'static/parkour_h264.mp4',
                 question: 'In this synthetic scene, which direction is the object moving?',
                 options: ['A: North', 'B: South', 'C: East', 'D: West'],
                 correct: 'C',
                 explanation: 'The synthetic data shows clear eastward movement of the primary object.'
             },
             {
-                video: 'https://huggingface.co/datasets/shijiezhou/VLM4D/resolve/main/videos_real/davis/parkour.mp4',
+                video: 'static/parkour_h264.mp4',
                 question: 'What is the trajectory pattern in this synthetic environment?',
                 options: ['A: Straight line', 'B: Curved path', 'C: Zigzag pattern', 'D: Spiral motion'],
                 correct: 'B',
                 explanation: 'The synthetic scene demonstrates a curved trajectory pattern.'
             },
             {
-                video: 'https://huggingface.co/datasets/shijiezhou/VLM4D/resolve/main/videos_real/davis/parkour.mp4',
+                video: 'static/parkour_h264.mp4',
                 question: 'How many objects are in motion in this synthetic scene?',
                 options: ['A: One', 'B: Two', 'C: Three', 'D: Four or more'],
                 correct: 'A',
@@ -1037,6 +1044,8 @@ document.addEventListener('DOMContentLoaded', function() {
         sources.forEach(source => {
             source.src = currentQuestion.video;
         });
+        
+        // Force video reload
         videoElement.load();
 
         // Update question text

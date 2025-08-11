@@ -1,0 +1,1 @@
+ffmpeg -i static/videos/cat.mp4 -c:v libx264 -c:a aac -movflags +faststart static/videos/cat_h264.mp4
