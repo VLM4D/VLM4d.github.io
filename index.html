@@ -360,6 +360,9 @@
               <source src="static/videos/ego4d_008.mp4" type="video/mp4">
               <source src="static/videos/ego4d_011.mp4" type="video/mp4">
               <source src="static/videos/ego4d_050.mp4" type="video/mp4">
+              <source src="static/videos/synth_031.mp4" type="video/mp4">
+              <source src="static/videos/synth_384.mp4" type="video/mp4">
+              <source src="static/videos/synth_064.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
           </div>
@@ -500,8 +503,8 @@
   </tbody> -->
   <tbody>
     <tr style="border-bottom: 1px solid black;">
-        <td rowspan="2" style="font-weight:bold; text-align:left; vertical-align:middle; border-bottom: 2px solid black;">Organization</td>
-        <td rowspan="2" style="font-weight:bold; text-align:left; vertical-align:middle; border-bottom: 2px solid black;">Model</td>
+        <td rowspan="2" style="font-weight:bold; text-align:center; vertical-align:middle; border-bottom: 2px solid black;">Organization</td>
+        <td rowspan="2" style="font-weight:bold; text-align:center; vertical-align:middle; border-bottom: 2px solid black;">Model</td>
         <td rowspan="2" style="font-weight:bold; text-align:center; vertical-align:middle; border-bottom: 2px solid black;">Release</td>
         <td colspan="3" style="font-weight:bold; text-align:center;">Real</td>
         <td colspan="3" style="font-weight:bold; text-align:center;">Synthetic</td>
@@ -808,7 +811,7 @@
         <td>37.5</td>
         <td>36.3</td>
     </tr>
-    <tr style="border-bottom: 1px dashed lightgray;">
+    <tr style="border-bottom: 1px solid lightgray;">
         <td>LLaVA-NeXT-Video-34B</td>
         <td>2024-6</td>
         <td>29.6</td>
@@ -841,7 +844,7 @@
     <pre><code>@inproceedings{zhou2025vlm4d,
     title={VLM4D: Towards Spatiotemporal Awareness in Vision Language Models},
     author={Zhou, Shijie and Vilesov, Alexander and He, Xuehai and Wan, Ziyu and Zhang, Shuwang and Nagachandra, Aditya and Chang, Di and Chen, Dongdong and Wang, Eric Xin and Kadambi, Achuta},
-    booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
+    booktitle={Proceedings of the IEEE/CVF international conference on computer vision},
     year={2025}
 }</code></pre>
   </div>
@@ -933,25 +936,25 @@ document.addEventListener('DOMContentLoaded', function() {
         ],
         'synthetic': [
             {
-                video: 'static/parkour_h264.mp4',
-                question: 'In this synthetic scene, which direction is the object moving?',
-                options: ['A: North', 'B: South', 'C: East', 'D: West'],
+                video: 'static/videos/synth_031.mp4',
+                question: 'What direction is the sports car moving towards?',
+                options: ['A: Not moving', 'B: Left', 'C: No sports car there', 'D: Right'],
+                correct: 'D',
+                explanation: 'This is an example of synthetic translational motion question.'
+            },
+            {
+                video: 'static/videos/synth_384.mp4',
+                question: 'What direction is the battle robot moving towards?',
+                options: ['A: No battle robot there', 'B: Left', 'C: Not moving', 'D: Right'],
                 correct: 'C',
-                explanation: 'The synthetic data shows clear eastward movement of the primary object.'
+                explanation: 'This is an example of synthetic translational motion question.'
             },
             {
-                video: 'static/parkour_h264.mp4',
-                question: 'What is the trajectory pattern in this synthetic environment?',
-                options: ['A: Straight line', 'B: Curved path', 'C: Zigzag pattern', 'D: Spiral motion'],
-                correct: 'B',
-                explanation: 'The synthetic scene demonstrates a curved trajectory pattern.'
-            },
-            {
-                video: 'static/parkour_h264.mp4',
-                question: 'How many objects are in motion in this synthetic scene?',
-                options: ['A: One', 'B: Two', 'C: Three', 'D: Four or more'],
-                correct: 'A',
-                explanation: 'Analysis shows only one primary object in motion in this synthetic scene.'
+                video: 'static/videos/synth_064.mp4',
+                question: 'Which direction did the skateboard move?',
+                options: ['A: Right', 'B: Not moving', 'C: Left', 'D: No skateboard there'],
+                correct: 'D',
+                explanation: 'This is an example of synthetic false-positive question that tests VLM\'s critical thinking.'
             }
         ]
     };
